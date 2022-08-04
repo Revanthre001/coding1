@@ -1,0 +1,42 @@
+import java.util.*;
+public class VendingMachine{
+    static void items(){
+       System.out.println("Items_Available");
+       System.out.println("Lays    : $10 ");
+       System.out.println("Kurkure : $15");
+       System.out.println("Bingo   : $20");
+       System.out.println("Shake   : $30");
+       System.out.println("Water   : $5");
+    }
+    /*static String void str(){
+        String[] = new String[]{"Lays","Kurkure","Bingo","Shake","Water"};
+    }*/
+    static int total(int bill,int payment){
+        if(payment==0){
+            return bill;
+        }else{
+            return 2*bill;
+        }
+    }
+    public static void main(String[] args)throws Exception{
+        items();
+        int bill=0;
+        Scanner in = new Scanner(System.in);
+        int[] arr = new int[5];
+        System.out.println("Enter the number items orderly, If dont want enter 0(Zero)");
+        for(int i=0;i<5;i++){
+            arr[i]=in.nextInt();
+        }
+        int[] cost=new int[]{10,15,20,30,5};
+        int k=0;
+        for(int j=0;j<5;j++){
+            bill+=(arr[j]*cost[k]);
+            k++;
+        }
+        System.out.println("Select payment method:");
+        System.out.println(" click 0 for Cash or 1 for Card");
+        int payment;
+        payment=in.nextInt();
+        System.out.println(total(bill,payment));
+    }
+}
