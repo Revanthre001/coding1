@@ -1,0 +1,41 @@
+import java.util.*;
+public class LargestPossibleNum{
+    public static void main(String[] args){
+        Scanner in=  new Scanner(System.in);
+        int n;
+        n=in.nextInt();
+        int[] arr = new int[10];
+        for(int i=0;i<n;i++){
+            arr[i]=in.nextInt();
+        }
+        String[] str = new String[30];
+        for(int i=0;i<n;i++){
+            str[i]=String.valueOf(arr[i]);
+        }
+        int i=0;
+        int m=0;
+        while(i<n){
+            m=str[i].length();
+            if(m>1){
+                String p=str[i];
+                for(int j=0;j<m;j++){
+                    str[n++]=p.substring(j,j+1);
+                }
+            }
+            i++;
+        }
+        for(int k=0;k<str.length;k++){
+            if(str[k]==null){
+                continue;
+            }
+            arr[k]=Integer.parseInt(str[k]);
+        }
+        Arrays.sort(arr);
+        String ans="";
+        for(int k=0;k<arr.length;k++){
+            String a = String.valueOf(arr[k]);
+            System.out.print(a);
+        }
+        
+    }
+}
